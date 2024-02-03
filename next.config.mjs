@@ -1,4 +1,6 @@
+import { withLogtail } from "@logtail/next";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {};
 
-export default nextConfig;
+export default withLogtail(nextConfig);
