@@ -30,6 +30,7 @@ model Wallet {
   email        String?       @unique
   phone        String?       @unique
   transactions Transaction[]
+  credits      Int           @default(0)
 }
 
 model Transaction {
