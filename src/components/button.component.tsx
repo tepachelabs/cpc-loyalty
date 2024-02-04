@@ -6,6 +6,8 @@ import { css } from '../../styled-system/css'
 
 export const Button = () => {
   function onSendLog () {
+    console.log('CLICKED: ', process.env.TEPACHE_TOKEN)
+    console.log('CLICKED: ', process.env.NEXT_PUBLIC_TEPACHE_TOKEN)
     log.info('Click event')
     log.error('Error event')
   }

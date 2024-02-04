@@ -6,6 +6,12 @@ COPY package.json package-lock.json panda.config.ts postcss.config.cjs ./
 RUN  npm install
 
 FROM node:20.11.0-alpine AS builder
+
+ENV NEXT_TELEMETRY_DISABLED 1
+ARG DOPPLER_TOKEN=$DOPPLER_TOKEN
+ARG DOPPLER_PROJECT=$DOPPLER_PROJECT
+ARG DOPPLER_ENVIRONMENT=$DOPPLER_ENVIRONMENT
+
 # Install Doppler CLI
 RUN wget -q -t3 'https://packages.doppler.com/public/cli/rsa.8004D9FF50437357.key' -O /etc/apk/keys/cli@doppler-8004D9FF50437357.rsa.pub && \
     echo 'https://packages.doppler.com/public/cli/alpine/any-version/main' | tee -a /etc/apk/repositories && \
@@ -16,18 +22,15 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY --from=deps /app/styled-system ./styled-system
 COPY . .
 
-ENV NEXT_TELEMETRY_DISABLED 1
-ARG DOPPLER_TOKEN
-ENV DOPPLER_TOKEN=$DOPPLER_TOKEN
-ARG DOPPLER_PROJECT
-ENV DOPPLER_PROJECT=$DOPPLER_PROJECT
-ARG DOPPLER_ENVIRONMENT
-ENV DOPPLER_ENVIRONMENT=$DOPPLER_ENVIRONMENT
-
 #RUN npx prisma generate
-RUN npm run build
+RUN doppler run -- npm run build
 
 FROM node:20.11.0-alpine AS runner
+
+ARG DOPPLER_TOKEN=$DOPPLER_TOKEN
+ARG DOPPLER_PROJECT=$DOPPLER_PROJECT
+ARG DOPPLER_ENVIRONMENT=$DOPPLER_ENVIRONMENT
+
 # Install Doppler CLI
 RUN wget -q -t3 'https://packages.doppler.com/public/cli/rsa.8004D9FF50437357.key' -O /etc/apk/keys/cli@doppler-8004D9FF50437357.rsa.pub && \
     echo 'https://packages.doppler.com/public/cli/alpine/any-version/main' | tee -a /etc/apk/repositories && \
@@ -37,12 +40,6 @@ WORKDIR /app
 
 ENV NODE_ENV production
 ENV NEXT_TELEMETRY_DISABLED 1
-ARG DOPPLER_TOKEN
-ENV DOPPLER_TOKEN=$DOPPLER_TOKEN
-ARG DOPPLER_PROJECT
-ENV DOPPLER_PROJECT=$DOPPLER_PROJECT
-ARG DOPPLER_ENVIRONMENT
-ENV DOPPLER_ENVIRONMENT=$DOPPLER_ENVIRONMENT
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs

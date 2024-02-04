@@ -1,3 +1,4 @@
+// @ts-check
 import { withLogtail } from "@logtail/next";
 
 /** @type {import('next').NextConfig} */
