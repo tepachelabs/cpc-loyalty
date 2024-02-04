@@ -22,7 +22,7 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY --from=deps /app/styled-system ./styled-system
 COPY . .
 
-#RUN npx prisma generate
+RUN doppler run -- npx prisma generate
 RUN doppler run -- npm run build
 
 FROM node:20.11.0-alpine AS runner
