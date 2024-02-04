@@ -20,7 +20,7 @@ export async function POST (req: NextRequest) {
       total: payload.total_price,
     }
 
-    log.info('Storing new order', order)
+    log.info('Storing new order', payload)
     await prisma.order.create({ data: order })
 
     return new Response('ok')
