@@ -12,6 +12,3 @@ CREATE TABLE "Order" (
 
     CONSTRAINT "Order_pkey" PRIMARY KEY ("id")
 );
-
--- CreateIndex
-CREATE UNIQUE INDEX "Order_shopifyOrderId_key" ON "Order"("shopifyOrderId");
