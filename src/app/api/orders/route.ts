@@ -1,12 +1,17 @@
 import { log } from '@logtail/next'
 import type { Transaction } from '@prisma/client'
-import { NextRequest } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 
 import prisma from '~/lib/prisma'
 
 import { findOrCreateWallet, createDraftsFromShopifyOrder } from './route.utils'
 
 export const dynamic = 'force-dynamic' // defaults to force-static
+
+export async function GET () {
+  const orders = await prisma.order.findMany()
+  return NextResponse.json({ orders })
+}
 
 export async function POST (req: NextRequest) {
   try {
