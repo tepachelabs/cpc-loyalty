@@ -11,13 +11,35 @@ datasource db {
 }
 
 model Order {
-  id                Int         @id @default(autoincrement())
-  shopifyOrderId    String
-  createdAt         DateTime?   @default(now())
-  updatedAt         DateTime?   @updatedAt
-  email             String?
-  phone             String?
-  orderNumber       Int
-  total             String
-  test              Boolean     @default(false)
+  id             Int           @id @default(autoincrement())
+  shopifyOrderId String
+  createdAt      DateTime?     @default(now())
+  updatedAt      DateTime?     @updatedAt
+  email          String?
+  phone          String?
+  orderNumber    Int
+  total          String
+  test           Boolean       @default(false)
+  transactions   Transaction[]
+}
+
+model Wallet {
+  id           Int           @id @default(autoincrement())
+  createdAt    DateTime?     @default(now())
+  updatedAt    DateTime?     @updatedAt
+  email        String?       @unique
+  phone        String?       @unique
+  transactions Transaction[]
+}
+
+model Transaction {
+  id          Int       @id @default(autoincrement())
+  createdAt   DateTime? @default(now())
+  updatedAt   DateTime? @updatedAt
+  description String?
+  amount      Int
+  Wallet      Wallet    @relation(fields: [walletId], references: [id])
+  walletId    Int
+  Order       Order?    @relation(fields: [orderId], references: [id])
+  orderId     Int?
 }

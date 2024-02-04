@@ -1,15 +1,731 @@
-POST https://loyalty.pozole.dev/api/orders
+POST http://localhost:3000/api/orders
 Content-Type: application/json
 
 {
-  "id": 5914862551333,
+  "admin_graphql_api_id": "gid://shopify/Order/5914862551333",
+  "app_id": 129785,
+  "browser_ip": "187.158.115.7",
+  "buyer_accepts_marketing": true,
+  "checkout_id": 37166733492517,
+  "checkout_token": "7966DB73-0E98-479B-A836-EC7C852F72BB",
+  "client_details": {
+    "accept_language": "es-MX,es-419;q=0.9,es;q=0.8",
+    "browser_ip": "187.158.115.7",
+    "user_agent": "Shopify POS/9.1.0/iOS/17.2/Apple/iPad7,11/production"
+  },
+  "closed_at": "2024-02-03T18:25:02-07:00",
+  "confirmation_number": "5W92C0YW5",
+  "confirmed": true,
   "contact_email": "hola@tonymtz.com",
   "created_at": "2024-02-03T18:25:00-07:00",
+  "currency": "MXN",
+  "current_subtotal_price": "176.25",
+  "current_subtotal_price_set": {
+    "presentment_money": {
+      "amount": "176.25",
+      "currency_code": "MXN"
+    },
+    "shop_money": {
+      "amount": "176.25",
+      "currency_code": "MXN"
+    }
+  },
+  "current_total_discounts": "58.75",
+  "current_total_discounts_set": {
+    "presentment_money": {
+      "amount": "58.75",
+      "currency_code": "MXN"
+    },
+    "shop_money": {
+      "amount": "58.75",
+      "currency_code": "MXN"
+    }
+  },
   "current_total_price": "176.25",
+  "current_total_price_set": {
+    "presentment_money": {
+      "amount": "176.25",
+      "currency_code": "MXN"
+    },
+    "shop_money": {
+      "amount": "176.25",
+      "currency_code": "MXN"
+    }
+  },
+  "current_total_tax": "24.31",
+  "current_total_tax_set": {
+    "presentment_money": {
+      "amount": "24.31",
+      "currency_code": "MXN"
+    },
+    "shop_money": {
+      "amount": "24.31",
+      "currency_code": "MXN"
+    }
+  },
+  "customer": {
+    "admin_graphql_api_id": "gid://shopify/Customer/6756366549285",
+    "created_at": "2023-01-14T01:25:49-07:00",
+    "currency": "MXN",
+    "email": "hola@tonymtz.com",
+    "email_marketing_consent": {
+      "consent_updated_at": "2023-06-29T15:41:38-07:00",
+      "opt_in_level": "single_opt_in",
+      "state": "subscribed"
+    },
+    "first_name": "tony",
+    "id": 6756366549285,
+    "last_name": "Mtz",
+    "state": "disabled",
+    "tags": "",
+    "tax_exempt": false,
+    "tax_exemptions": [],
+    "updated_at": "2024-02-03T18:52:05-07:00",
+    "verified_email": true
+  },
+  "customer_locale": "es",
+  "device_id": 2,
+  "discount_applications": [
+    {
+      "allocation_method": "across",
+      "code": "EMPLEADO25",
+      "target_selection": "entitled",
+      "target_type": "line_item",
+      "type": "discount_code",
+      "value": "25.0",
+      "value_type": "percentage"
+    }
+  ],
+  "discount_codes": [
+    {
+      "amount": "58.75",
+      "code": "EMPLEADO25",
+      "type": "percentage"
+    }
+  ],
   "email": "hola@tonymtz.com",
+  "estimated_taxes": false,
+  "financial_status": "paid",
+  "fulfillment_status": "fulfilled",
+  "fulfillments": [
+    {
+      "admin_graphql_api_id": "gid://shopify/Fulfillment/5238259908901",
+      "created_at": "2024-02-03T18:25:01-07:00",
+      "id": 5238259908901,
+      "line_items": [
+        {
+          "admin_graphql_api_id": "gid://shopify/LineItem/15299208184101",
+          "attributed_staffs": [],
+          "current_quantity": 2,
+          "discount_allocations": [
+            {
+              "amount": "22.50",
+              "amount_set": {
+                "presentment_money": {
+                  "amount": "22.50",
+                  "currency_code": "MXN"
+                },
+                "shop_money": {
+                  "amount": "22.50",
+                  "currency_code": "MXN"
+                }
+              },
+              "discount_application_index": 0
+            }
+          ],
+          "duties": [],
+          "fulfillable_quantity": 0,
+          "fulfillment_service": "manual",
+          "fulfillment_status": "fulfilled",
+          "gift_card": false,
+          "grams": 0,
+          "id": 15299208184101,
+          "name": "Flat White",
+          "price": "45.00",
+          "price_set": {
+            "presentment_money": {
+              "amount": "45.00",
+              "currency_code": "MXN"
+            },
+            "shop_money": {
+              "amount": "45.00",
+              "currency_code": "MXN"
+            }
+          },
+          "product_exists": true,
+          "product_id": 8074749837605,
+          "properties": [],
+          "quantity": 2,
+          "requires_shipping": true,
+          "sku": "flat-white",
+          "tax_lines": [
+            {
+              "channel_liable": false,
+              "price": "9.31",
+              "price_set": {
+                "presentment_money": {
+                  "amount": "9.31",
+                  "currency_code": "MXN"
+                },
+                "shop_money": {
+                  "amount": "9.31",
+                  "currency_code": "MXN"
+                }
+              },
+              "rate": 0.16,
+              "title": "VAT"
+            }
+          ],
+          "taxable": true,
+          "title": "Flat White",
+          "total_discount": "0.00",
+          "total_discount_set": {
+            "presentment_money": {
+              "amount": "0.00",
+              "currency_code": "MXN"
+            },
+            "shop_money": {
+              "amount": "0.00",
+              "currency_code": "MXN"
+            }
+          },
+          "variant_id": 44351918145829,
+          "variant_inventory_management": null,
+          "variant_title": null,
+          "vendor": "Culto al Perro Café"
+        },
+        {
+          "admin_graphql_api_id": "gid://shopify/LineItem/15299208216869",
+          "attributed_staffs": [],
+          "current_quantity": 1,
+          "discount_allocations": [
+            {
+              "amount": "18.75",
+              "amount_set": {
+                "presentment_money": {
+                  "amount": "18.75",
+                  "currency_code": "MXN"
+                },
+                "shop_money": {
+                  "amount": "18.75",
+                  "currency_code": "MXN"
+                }
+              },
+              "discount_application_index": 0
+            }
+          ],
+          "duties": [],
+          "fulfillable_quantity": 0,
+          "fulfillment_service": "manual",
+          "fulfillment_status": "fulfilled",
+          "gift_card": false,
+          "grams": 0,
+          "id": 15299208216869,
+          "name": "Latte - Frío",
+          "price": "75.00",
+          "price_set": {
+            "presentment_money": {
+              "amount": "75.00",
+              "currency_code": "MXN"
+            },
+            "shop_money": {
+              "amount": "75.00",
+              "currency_code": "MXN"
+            }
+          },
+          "product_exists": true,
+          "product_id": 8074440507685,
+          "properties": [],
+          "quantity": 1,
+          "requires_shipping": true,
+          "sku": "latte-frio",
+          "tax_lines": [
+            {
+              "channel_liable": false,
+              "price": "7.76",
+              "price_set": {
+                "presentment_money": {
+                  "amount": "7.76",
+                  "currency_code": "MXN"
+                },
+                "shop_money": {
+                  "amount": "7.76",
+                  "currency_code": "MXN"
+                }
+              },
+              "rate": 0.16,
+              "title": "VAT"
+            }
+          ],
+          "taxable": true,
+          "title": "Latte",
+          "total_discount": "0.00",
+          "total_discount_set": {
+            "presentment_money": {
+              "amount": "0.00",
+              "currency_code": "MXN"
+            },
+            "shop_money": {
+              "amount": "0.00",
+              "currency_code": "MXN"
+            }
+          },
+          "variant_id": 44351929319717,
+          "variant_inventory_management": null,
+          "variant_title": "Frío",
+          "vendor": "Culto al Perro Café"
+        },
+        {
+          "admin_graphql_api_id": "gid://shopify/LineItem/15299208249637",
+          "attributed_staffs": [],
+          "current_quantity": 1,
+          "discount_allocations": [
+            {
+              "amount": "17.50",
+              "amount_set": {
+                "presentment_money": {
+                  "amount": "17.50",
+                  "currency_code": "MXN"
+                },
+                "shop_money": {
+                  "amount": "17.50",
+                  "currency_code": "MXN"
+                }
+              },
+              "discount_application_index": 0
+            }
+          ],
+          "duties": [],
+          "fulfillable_quantity": 0,
+          "fulfillment_service": "manual",
+          "fulfillment_status": "fulfilled",
+          "gift_card": false,
+          "grams": 0,
+          "id": 15299208249637,
+          "name": "Pay de Queso",
+          "price": "70.00",
+          "price_set": {
+            "presentment_money": {
+              "amount": "70.00",
+              "currency_code": "MXN"
+            },
+            "shop_money": {
+              "amount": "70.00",
+              "currency_code": "MXN"
+            }
+          },
+          "product_exists": true,
+          "product_id": 8075346837797,
+          "properties": [],
+          "quantity": 1,
+          "requires_shipping": false,
+          "sku": "",
+          "tax_lines": [
+            {
+              "channel_liable": false,
+              "price": "7.24",
+              "price_set": {
+                "presentment_money": {
+                  "amount": "7.24",
+                  "currency_code": "MXN"
+                },
+                "shop_money": {
+                  "amount": "7.24",
+                  "currency_code": "MXN"
+                }
+              },
+              "rate": 0.16,
+              "title": "VAT"
+            }
+          ],
+          "taxable": true,
+          "title": "Pay de Queso",
+          "total_discount": "0.00",
+          "total_discount_set": {
+            "presentment_money": {
+              "amount": "0.00",
+              "currency_code": "MXN"
+            },
+            "shop_money": {
+              "amount": "0.00",
+              "currency_code": "MXN"
+            }
+          },
+          "variant_id": 44354526642469,
+          "variant_inventory_management": null,
+          "variant_title": null,
+          "vendor": "Culto al Perro Café"
+        }
+      ],
+      "location_id": 76418154789,
+      "name": "#5630.1",
+      "order_id": 5914862551333,
+      "origin_address": {},
+      "receipt": {},
+      "service": "manual",
+      "shipment_status": null,
+      "status": "success",
+      "tracking_company": null,
+      "tracking_number": null,
+      "tracking_numbers": [],
+      "tracking_url": null,
+      "tracking_urls": [],
+      "updated_at": "2024-02-03T18:25:01-07:00"
+    }
+  ],
+  "id": 5914862551333,
+  "line_items": [
+    {
+      "admin_graphql_api_id": "gid://shopify/LineItem/15299208184101",
+      "attributed_staffs": [],
+      "current_quantity": 2,
+      "discount_allocations": [
+        {
+          "amount": "22.50",
+          "amount_set": {
+            "presentment_money": {
+              "amount": "22.50",
+              "currency_code": "MXN"
+            },
+            "shop_money": {
+              "amount": "22.50",
+              "currency_code": "MXN"
+            }
+          },
+          "discount_application_index": 0
+        }
+      ],
+      "duties": [],
+      "fulfillable_quantity": 0,
+      "fulfillment_service": "manual",
+      "fulfillment_status": "fulfilled",
+      "gift_card": false,
+      "grams": 0,
+      "id": 15299208184101,
+      "name": "Flat White",
+      "price": "45.00",
+      "price_set": {
+        "presentment_money": {
+          "amount": "45.00",
+          "currency_code": "MXN"
+        },
+        "shop_money": {
+          "amount": "45.00",
+          "currency_code": "MXN"
+        }
+      },
+      "product_exists": true,
+      "product_id": 8074749837605,
+      "properties": [],
+      "quantity": 2,
+      "requires_shipping": true,
+      "sku": "flat-white",
+      "tax_lines": [
+        {
+          "channel_liable": false,
+          "price": "9.31",
+          "price_set": {
+            "presentment_money": {
+              "amount": "9.31",
+              "currency_code": "MXN"
+            },
+            "shop_money": {
+              "amount": "9.31",
+              "currency_code": "MXN"
+            }
+          },
+          "rate": 0.16,
+          "title": "VAT"
+        }
+      ],
+      "taxable": true,
+      "title": "Flat White",
+      "total_discount": "0.00",
+      "total_discount_set": {
+        "presentment_money": {
+          "amount": "0.00",
+          "currency_code": "MXN"
+        },
+        "shop_money": {
+          "amount": "0.00",
+          "currency_code": "MXN"
+        }
+      },
+      "variant_id": 44351918145829,
+      "variant_inventory_management": null,
+      "variant_title": null,
+      "vendor": "Culto al Perro Café"
+    },
+    {
+      "admin_graphql_api_id": "gid://shopify/LineItem/15299208216869",
+      "attributed_staffs": [],
+      "current_quantity": 1,
+      "discount_allocations": [
+        {
+          "amount": "18.75",
+          "amount_set": {
+            "presentment_money": {
+              "amount": "18.75",
+              "currency_code": "MXN"
+            },
+            "shop_money": {
+              "amount": "18.75",
+              "currency_code": "MXN"
+            }
+          },
+          "discount_application_index": 0
+        }
+      ],
+      "duties": [],
+      "fulfillable_quantity": 0,
+      "fulfillment_service": "manual",
+      "fulfillment_status": "fulfilled",
+      "gift_card": false,
+      "grams": 0,
+      "id": 15299208216869,
+      "name": "Latte - Frío",
+      "price": "75.00",
+      "price_set": {
+        "presentment_money": {
+          "amount": "75.00",
+          "currency_code": "MXN"
+        },
+        "shop_money": {
+          "amount": "75.00",
+          "currency_code": "MXN"
+        }
+      },
+      "product_exists": true,
+      "product_id": 8074440507685,
+      "properties": [],
+      "quantity": 1,
+      "requires_shipping": true,
+      "sku": "latte-frio",
+      "tax_lines": [
+        {
+          "channel_liable": false,
+          "price": "7.76",
+          "price_set": {
+            "presentment_money": {
+              "amount": "7.76",
+              "currency_code": "MXN"
+            },
+            "shop_money": {
+              "amount": "7.76",
+              "currency_code": "MXN"
+            }
+          },
+          "rate": 0.16,
+          "title": "VAT"
+        }
+      ],
+      "taxable": true,
+      "title": "Latte",
+      "total_discount": "0.00",
+      "total_discount_set": {
+        "presentment_money": {
+          "amount": "0.00",
+          "currency_code": "MXN"
+        },
+        "shop_money": {
+          "amount": "0.00",
+          "currency_code": "MXN"
+        }
+      },
+      "variant_id": 44351929319717,
+      "variant_inventory_management": null,
+      "variant_title": "Frío",
+      "vendor": "Culto al Perro Café"
+    },
+    {
+      "admin_graphql_api_id": "gid://shopify/LineItem/15299208249637",
+      "attributed_staffs": [],
+      "current_quantity": 1,
+      "discount_allocations": [
+        {
+          "amount": "17.50",
+          "amount_set": {
+            "presentment_money": {
+              "amount": "17.50",
+              "currency_code": "MXN"
+            },
+            "shop_money": {
+              "amount": "17.50",
+              "currency_code": "MXN"
+            }
+          },
+          "discount_application_index": 0
+        }
+      ],
+      "duties": [],
+      "fulfillable_quantity": 0,
+      "fulfillment_service": "manual",
+      "fulfillment_status": "fulfilled",
+      "gift_card": false,
+      "grams": 0,
+      "id": 15299208249637,
+      "name": "Pay de Queso",
+      "price": "70.00",
+      "price_set": {
+        "presentment_money": {
+          "amount": "70.00",
+          "currency_code": "MXN"
+        },
+        "shop_money": {
+          "amount": "70.00",
+          "currency_code": "MXN"
+        }
+      },
+      "product_exists": true,
+      "product_id": 8075346837797,
+      "properties": [],
+      "quantity": 1,
+      "requires_shipping": false,
+      "sku": "",
+      "tax_lines": [
+        {
+          "channel_liable": false,
+          "price": "7.24",
+          "price_set": {
+            "presentment_money": {
+              "amount": "7.24",
+              "currency_code": "MXN"
+            },
+            "shop_money": {
+              "amount": "7.24",
+              "currency_code": "MXN"
+            }
+          },
+          "rate": 0.16,
+          "title": "VAT"
+        }
+      ],
+      "taxable": true,
+      "title": "Pay de Queso",
+      "total_discount": "0.00",
+      "total_discount_set": {
+        "presentment_money": {
+          "amount": "0.00",
+          "currency_code": "MXN"
+        },
+        "shop_money": {
+          "amount": "0.00",
+          "currency_code": "MXN"
+        }
+      },
+      "variant_id": 44354526642469,
+      "variant_inventory_management": null,
+      "variant_title": null,
+      "vendor": "Culto al Perro Café"
+    }
+  ],
+  "location_id": 76418154789,
   "name": "#5630",
+  "note_attributes": [],
+  "number": 4630,
   "order_number": 5630,
-  "phone": null,
+  "order_status_url": "https://cultoperrocafe.myshopify.com/70701678885/orders/d154c735d3d6cccf04e5ed94c20973fc/authenticate?key=920b1dacb89779975135fdf08a00d949",
+  "payment_gateway_names": [
+    "Terminal Inbursa"
+  ],
+  "presentment_currency": "MXN",
+  "processed_at": "2024-02-03T18:24:59-07:00",
+  "reference": "787657de8993e8528c7edbd2273d6315",
+  "refunds": [],
+  "shipping_lines": [],
+  "source_identifier": "76418154789-2-6432",
+  "source_name": "pos",
+  "subtotal_price": "176.25",
+  "subtotal_price_set": {
+    "presentment_money": {
+      "amount": "176.25",
+      "currency_code": "MXN"
+    },
+    "shop_money": {
+      "amount": "176.25",
+      "currency_code": "MXN"
+    }
+  },
+  "tags": "",
+  "tax_exempt": false,
+  "tax_lines": [
+    {
+      "channel_liable": false,
+      "price": "24.31",
+      "price_set": {
+        "presentment_money": {
+          "amount": "24.31",
+          "currency_code": "MXN"
+        },
+        "shop_money": {
+          "amount": "24.31",
+          "currency_code": "MXN"
+        }
+      },
+      "rate": 0.16,
+      "title": "VAT"
+    }
+  ],
+  "taxes_included": true,
   "test": true,
-  "total_price": "176.25"
+  "token": "d154c735d3d6cccf04e5ed94c20973fc",
+  "total_discounts": "58.75",
+  "total_discounts_set": {
+    "presentment_money": {
+      "amount": "58.75",
+      "currency_code": "MXN"
+    },
+    "shop_money": {
+      "amount": "58.75",
+      "currency_code": "MXN"
+    }
+  },
+  "total_line_items_price": "235.00",
+  "total_line_items_price_set": {
+    "presentment_money": {
+      "amount": "235.00",
+      "currency_code": "MXN"
+    },
+    "shop_money": {
+      "amount": "235.00",
+      "currency_code": "MXN"
+    }
+  },
+  "total_outstanding": "0.00",
+  "total_price": "176.25",
+  "total_price_set": {
+    "presentment_money": {
+      "amount": "176.25",
+      "currency_code": "MXN"
+    },
+    "shop_money": {
+      "amount": "176.25",
+      "currency_code": "MXN"
+    }
+  },
+  "total_shipping_price_set": {
+    "presentment_money": {
+      "amount": "0.00",
+      "currency_code": "MXN"
+    },
+    "shop_money": {
+      "amount": "0.00",
+      "currency_code": "MXN"
+    }
+  },
+  "total_tax": "24.31",
+  "total_tax_set": {
+    "presentment_money": {
+      "amount": "24.31",
+      "currency_code": "MXN"
+    },
+    "shop_money": {
+      "amount": "24.31",
+      "currency_code": "MXN"
+    }
+  },
+  "total_tip_received": "0.00",
+  "total_weight": 0,
+  "updated_at": "2024-02-03T18:25:02-07:00",
+  "user_id": 90697564453
 }

@@ -1,8 +1,10 @@
 import { log } from '@logtail/next'
-import type { Order } from '@prisma/client'
+import type { Transaction } from '@prisma/client'
 import { NextRequest } from 'next/server'
 
 import prisma from '~/lib/prisma'
+
+import { findOrCreateWallet, createDraftsFromShopifyOrder } from './route.utils'
 
 export const dynamic = 'force-dynamic' // defaults to force-static
 
@@ -10,18 +12,33 @@ export async function POST (req: NextRequest) {
   try {
     const payload = await req.json()
 
-    const order: Omit<Order, 'id' | 'updatedAt'> = {
-      shopifyOrderId: `${ payload.id }`,
-      createdAt: payload.created_at,
-      email: payload.email,
-      orderNumber: payload.order_number,
-      phone: payload.phone,
-      test: payload.test,
-      total: payload.total_price,
-    }
+    log.info('Processing new order', payload)
 
-    log.info('Storing new order', payload)
-    await prisma.order.create({ data: order })
+    const {
+      draftOrder,
+      draftTransaction,
+      draftWallet,
+    } = createDraftsFromShopifyOrder(payload)
+
+    log.info('Drafts prepared', { draftOrder, draftTransaction, draftWallet })
+
+    // Store everything into the database
+    const wallet = await findOrCreateWallet(draftWallet)
+    const order = await prisma.order.create({ data: draftOrder })
+
+    // If wallet is found, create a transaction to link the order with the wallet
+    if (wallet) {
+      log.info('Wallet found!', wallet)
+
+      const data = {
+        ...draftTransaction,
+        walletId: wallet.id,
+        orderId: order.id,
+      } satisfies Omit<Transaction, 'id' | 'createdAt' | 'updatedAt'>
+
+      const transaction = await prisma.transaction.create({ data })
+      log.info('Transaction stored!', transaction)
+    }
 
     return new Response('ok')
   } catch (e) {
